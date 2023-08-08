@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import ToDo from './components/ToDo'
-import { getAllToDo , addToDo } from './utils/HandleApi';
+import { getAllToDo , addToDo ,deleteToDo} from './utils/HandleApi';
 
 function App() {
 
@@ -29,7 +29,7 @@ function App() {
       <div className="h-1 w-[95vw] bg-slate-600 m-auto mb-4"></div>
       <div className="list">
         {toDo.map((item)=>{
-           return <ToDo key={item._id} text={item.text}/>
+           return <ToDo key={item._id} text={item.text} deleteToDo={()=>deleteToDo(item._id , setToDo)}/>
         })}
       </div>
     </div>

@@ -19,4 +19,13 @@ const addToDo = (text,setText,setToDo)=>{
     .catch((err)=> console.log(err))
 }
 
-export {getAllToDo , addToDo}
+const deleteToDo = (_id,setToDo)=>{
+    axios.post(`${baseUrl}/delete`,{_id})
+    .then((data)=>{
+        getAllToDo(setToDo)
+    }).catch((err)=>{
+        console.log(err)
+    })
+}
+
+export {getAllToDo , addToDo , deleteToDo}
